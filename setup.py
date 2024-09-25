@@ -5,13 +5,13 @@ import os
 version = __import__('moderation').__version__
 
 tests_require = [
-    'django>=2.2',
+    'django>=3.2,<4.3',
     'django-webtest',
     'webtest',
     'pillow',
 ]
 
-install_requires = ['django>=2.2']
+install_requires = ['django>=3.2,<4.3']
 
 setup(
     name='django-moderation',
@@ -36,6 +36,7 @@ setup(
         'Framework :: Django :: 3.2',
         'Framework :: Django :: 4.0',
         'Framework :: Django :: 4.1',
+        'Framework :: Django :: 4.2',
     ],
     keywords='django moderation models',
     author='Dominik Szopa',

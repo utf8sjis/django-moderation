@@ -114,3 +114,10 @@ Added features
 - Drop dependency `django-model-utils` which we used for Choices functionality
 - Add partial support for Django 4.0 - remove ugettext, change `smart_text` to `smart_str`,
   change `ifequal` template tag to `if`.
+
+
+0.9.0 (2024-09-25)
+------------------
+
+- Drop support for Django <3.2. Now it supports only Django>=3.2,<4.3
+- Drop support of Python3.6, 3.7. Now it supports only Python 3.8, 3.9, 3.10, 3.11

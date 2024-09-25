@@ -53,9 +53,9 @@ Screenshots
 Requirements
 ============
 
-Python 3.6, 3.7, 3.8, 3.9
+Python 3.8, 3.9, 3.10, 3.11
 
-Django 2.2, 3.1, 3.2
+Django 3.2, 4.0, 4.1, 4.2
 
 
 Contents:
