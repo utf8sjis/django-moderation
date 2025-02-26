@@ -2,6 +2,7 @@ from django.contrib.contenttypes.fields import GenericRelation
 
 from .constants import (
     MODERATION_DRAFT_STATE,
+    MODERATION_READY_STATE,
     MODERATION_STATUS_APPROVED,
     MODERATION_STATUS_PENDING,
 )
@@ -276,6 +277,7 @@ class ModerationManager(metaclass=ModerationManagerSingleton):
 
         except ModeratedObject.DoesNotExist:
             moderated_object = get_new_instance(unchanged_obj)
+            moderated_object.state = MODERATION_READY_STATE
 
         else:
             if moderated_object.has_object_been_changed(instance):

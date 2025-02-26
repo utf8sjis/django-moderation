@@ -121,3 +121,8 @@ Added features
 
 - Drop support for Django <3.2. Now it supports only Django>=3.2,<4.3
 - Drop support of Python3.6, 3.7. Now it supports only Python 3.8, 3.9, 3.10, 3.11
+
+0.9.1 (2025-02-20)
+------------------
+
+- Fixed `state` value of `ModeratedObject`, which is initialized when there are existing objects before moderation is applied
