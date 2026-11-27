@@ -127,8 +127,8 @@ Added features
 
 - Fixed `state` value of `ModeratedObject`, which is initialized when there are existing objects before moderation is applied
 
-0.9.2 (2026-11-27)
-------------------
+0.10.0 (2026-11-27)
+-------------------
 
 - Add support for Django 5.0, 5.1 and 5.2. Now it supports Django>=3.2,<6.0
 - Fixed `TypeError` from `Model._save_parents()` on Django 5.0+, which now requires a `force_insert` argument
