@@ -1,5 +1,6 @@
 import datetime
 
+import django
 from django.conf import settings
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
@@ -217,7 +218,13 @@ class ModeratedObject(models.Model):
                 base_object.save_base(raw=True)
                 # The _save_parents call is required for models with an
                 # inherited visibility_column.
-                base_object._save_parents(base_object.__class__, None, None)
+                if django.VERSION >= (5, 0):
+                    # Django 5.0 added a required force_insert argument.
+                    base_object._save_parents(
+                        base_object.__class__, None, None, force_insert=False
+                    )
+                else:
+                    base_object._save_parents(base_object.__class__, None, None)
 
         if self.changed_by:
             self.moderator.inform_user(self.content_object, self.changed_by)
