@@ -219,9 +219,10 @@ class ModeratedObject(models.Model):
                 # The _save_parents call is required for models with an
                 # inherited visibility_column.
                 if django.VERSION >= (5, 0):
-                    # Django 5.0 added a required force_insert argument.
+                    # Django 5.0 added a required force_insert argument, which
+                    # takes a tuple of model classes.
                     base_object._save_parents(
-                        base_object.__class__, None, None, force_insert=False
+                        base_object.__class__, None, None, force_insert=()
                     )
                 else:
                     base_object._save_parents(base_object.__class__, None, None)
