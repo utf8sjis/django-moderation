@@ -10,9 +10,24 @@ env:
   - DJANGO='Django>=4.0,<4.1'
   - DJANGO='Django>=4.1,<4.2'
   - DJANGO='Django>=4.2,<4.3'
+  - DJANGO='Django>=5.0,<5.1'
+  - DJANGO='Django>=5.1,<5.2'
+  - DJANGO='Django>=5.2,<5.3'
   - DJANGO='https://github.com/django/django/archive/main.tar.gz'
 matrix:
   exclude:
+    - python: "3.8"
+      env: DJANGO='Django>=5.0,<5.1'
+    - python: "3.9"
+      env: DJANGO='Django>=5.0,<5.1'
+    - python: "3.8"
+      env: DJANGO='Django>=5.1,<5.2'
+    - python: "3.9"
+      env: DJANGO='Django>=5.1,<5.2'
+    - python: "3.8"
+      env: DJANGO='Django>=5.2,<5.3'
+    - python: "3.9"
+      env: DJANGO='Django>=5.2,<5.3'
     - python: "3.7"
       env: DJANGO='https://github.com/django/django/archive/main.tar.gz'
   allow_failures:

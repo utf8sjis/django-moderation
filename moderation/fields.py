@@ -48,10 +48,14 @@ class SerializedObjectField(models.TextField):
         return serializers.serialize(self.serialize_format, value_set)
 
     def _deserialize(self, value):
-        obj_generator = serializers.deserialize(
-            self.serialize_format,
-            value.encode(settings.DEFAULT_CHARSET),
-            ignorenonexistent=True,
+        # On Django 5.2 and later, a for loop over the deserializer starts
+        # again from the first object, so take a single iterator from it.
+        obj_generator = iter(
+            serializers.deserialize(
+                self.serialize_format,
+                value.encode(settings.DEFAULT_CHARSET),
+                ignorenonexistent=True,
+            )
         )
 
         obj = next(obj_generator).object
